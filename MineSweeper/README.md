@@ -1,6 +1,7 @@
 # MineSweeper
 
 Made by: Colin van Dongen
+
 Class: 3GDB
 
 Description: I made a minesweeper to get to know how the flood fill algorithm works and how i can use it.
