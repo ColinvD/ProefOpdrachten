@@ -8,4 +8,6 @@ Description: I made a minesweeper to get to know how the flood fill algorithm wo
 
 Controls: left click to reveal the tile, left shift + left click to flag / unflag the tile.
 
-Playable game: http://22950.hosts.ma-cloud.nl/bewijzenmap/p3.1/ProefOpdrachten/Minesweeper/
+[Playable game](http://22950.hosts.ma-cloud.nl/bewijzenmap/p3.1/ProefOpdrachten/Minesweeper/)
+
+[Portfolio page](http://22950.hosts.ma-cloud.nl/bewijzenmap/Portfolio/Site/htmlFiles/Projects/SchoolProjects/Minesweeper.html)
