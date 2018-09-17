@@ -36,9 +36,9 @@ public class Conditions : MonoBehaviour {
         }
         if (count == 0)
         {
-            //generator.ChangeField();
-            //panel.SetActive(true);
-            //text.text = "You won!!!!";
+            generator.ChangeField();
+            panel.SetActive(true);
+            text.text = "You won!!!!";
         }
     }
 
@@ -48,9 +48,9 @@ public class Conditions : MonoBehaviour {
         {
             if (mines[i].GetVisable())
             {
-                //generator.ChangeField();
-                //panel.SetActive(true);
-                //text.text = "You Exploded!!!!";
+                generator.ChangeField();
+                panel.SetActive(true);
+                text.text = "You Exploded!!!!";
             }
         }
     }

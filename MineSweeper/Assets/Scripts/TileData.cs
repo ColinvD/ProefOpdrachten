@@ -44,7 +44,7 @@ public class TileData : MonoBehaviour {
         }
     }
 
-    /*public void Dead()
+    public void Dead()
     {
         visable = true;
         if (mine == false)
@@ -56,7 +56,7 @@ public class TileData : MonoBehaviour {
             number.text = "boom";
             GetComponent<Image>().color = Color.red;
         }
-    }*/
+    }
 
     private void Flag()
     {

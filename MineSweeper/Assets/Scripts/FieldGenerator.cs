@@ -39,7 +39,6 @@ public class FieldGenerator : MonoBehaviour {
                 int y = Random.Range(0, height - 1);
                 if (!field[x, y].GetMine())
                 {
-                    //bomb true
                     field[x, y].ChangeMine(true);
                     conditions.AddMines(field[x, y]);
                 }
@@ -51,7 +50,7 @@ public class FieldGenerator : MonoBehaviour {
         }
 	}
 
-    /*public void ChangeField()
+    public void ChangeField()
     {
         for (int i = 0; i < length; i++)
         {
@@ -60,7 +59,7 @@ public class FieldGenerator : MonoBehaviour {
                 field[i, j].Dead();
             }
         }
-    }*/
+    }
 
     public TileData[,] GetField()
     {
