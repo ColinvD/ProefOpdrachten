@@ -1,108 +1,294 @@
 var config = {
-        type: Phaser.AUTO,
-        width: 800,
-        height: 600,
-        physics: {
-          default: 'arcade',
-          arcade: {
-            gravity: { y: 300},
-            debug: false
-          }
-        },
-        scene: {
-            preload: preload,
-            create: create,
-            update: update
-        }
-    };
+    type: Phaser.WEBGL,
+    width: window.innerWidth,
+    height: window.innerHeight,
+    backgroundColor: '#bfcc00',
+    parent: 'phaser-example',
+    scene: {
+        preload: preload,
+        create: create,
+        update: update
+    }
+};
+
+var snake;
+var food;
+var cursors;
+
+var UP = 0;
+var DOWN = 1;
+var LEFT = 2;
+var RIGHT = 3;
 
 var game = new Phaser.Game(config);
-var platforms;
-var stars;
 
 function preload ()
 {
-    this.load.image('sky', 'assets/sky.png');
-    this.load.image('ground', 'assets/platform.png');
-    this.load.image('star', 'assets/star.png');
-    this.load.image('bomb', 'assets/bomb.png');
-    this.load.spritesheet('dude',
-        'assets/dude.png',
-        { frameWidth: 32, frameHeight: 48 }
-    );
+    this.load.image('apple', 'Assets/apple.jpg');
+    this.load.image('snake', 'Assets/snake.jpg');
 }
 
 function create ()
 {
-  cursors = this.input.keyboard.createCursorKeys();
-  this.add.image(400, 300, 'sky');
+    var Food = new Phaser.Class({
 
-  platforms = this.physics.add.staticGroup();
-  platforms.create(400,568, 'ground').setScale(2).refreshBody();
-  platforms.create(600,400, 'ground');
-  platforms.create(50,250, 'ground');
-  platforms.create(750,220, 'ground');
+        Extends: Phaser.GameObjects.Image,
 
-  player = this.physics.add.sprite(100,450,'dude');
-  player.setBounce(0.2);
-  player.setCollideWorldBounds(true);
+        initialize:
 
-  this.anims.create({
-    key: 'left',
-    frames: this.anims.generateFrameNumbers('dude', {start: 0, end: 3}),
-    frameRate: 10,
-    repeat: -1
-  });
+        function Food (scene, x, y)
+        {
+            Phaser.GameObjects.Image.call(this, scene)
 
-  this.anims.create({
-    key: 'turn',
-    frames: [ { key: 'dude', frame: 4} ],
-    frameRate: 20
-  });
+            this.setTexture('apple');
+            this.setPosition(x * 16, y * 16);
+            this.setOrigin(0);
 
-  this.anims.create({
-    key: 'right',
-    frames: this.anims.generateFrameNumbers('dude', { start: 5, end: 8 }),
-    frameRate: 10,
-    repeat: -1
-  });
+            this.total = 0;
 
-  this.physics.add.collider(player, platforms);
+            scene.children.add(this);
+        },
 
-  stars = this.physics.add.group({
-    key: 'star',
-    repeat: 11,
-    setXY: { x: 12, y: 0, stepX: 70 }
-  });
+        eat: function ()
+        {
+            this.total++;
+        }
 
-  stars.children.iterate(function(child){
-    child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
-  });
+    });
 
-  this.physics.add.collider(stars, platforms);
-  this.physics.add.overlap(player, stars, collectStar, null, this);
+    var Snake = new Phaser.Class({
+
+        initialize:
+
+        function Snake (scene, x, y)
+        {
+            this.headPosition = new Phaser.Geom.Point(x, y);
+
+            this.body = scene.add.group();
+
+            this.head = this.body.create(x * 16, y * 16, 'snake');
+            this.head.setOrigin(0);
+
+            this.alive = true;
+
+            this.speed = 100;
+
+            this.moveTime = 0;
+
+            this.tail = new Phaser.Geom.Point(x, y);
+
+            this.heading = RIGHT;
+            this.direction = RIGHT;
+        },
+
+        update: function (time)
+        {
+            if (time >= this.moveTime)
+            {
+                return this.move(time);
+            }
+        },
+
+        faceLeft: function ()
+        {
+            if (this.direction === UP || this.direction === DOWN)
+            {
+                this.heading = LEFT;
+            }
+        },
+
+        faceRight: function ()
+        {
+            if (this.direction === UP || this.direction === DOWN)
+            {
+                this.heading = RIGHT;
+            }
+        },
+
+        faceUp: function ()
+        {
+            if (this.direction === LEFT || this.direction === RIGHT)
+            {
+                this.heading = UP;
+            }
+        },
+
+        faceDown: function ()
+        {
+            if (this.direction === LEFT || this.direction === RIGHT)
+            {
+                this.heading = DOWN;
+            }
+        },
+
+        move: function (time)
+        {
+            switch (this.heading)
+            {
+                case LEFT:
+                    this.headPosition.x = Phaser.Math.Wrap(this.headPosition.x - 1, 0, 40);
+                    break;
+
+                case RIGHT:
+                    this.headPosition.x = Phaser.Math.Wrap(this.headPosition.x + 1, 0, 40);
+                    break;
+
+                case UP:
+                    this.headPosition.y = Phaser.Math.Wrap(this.headPosition.y - 1, 0, 30);
+                    break;
+
+                case DOWN:
+                    this.headPosition.y = Phaser.Math.Wrap(this.headPosition.y + 1, 0, 30);
+                    break;
+            }
+
+            this.direction = this.heading;
+
+            Phaser.Actions.ShiftPosition(this.body.getChildren(), this.headPosition.x * 16, this.headPosition.y * 16, 1, this.tail);
+
+            var hitBody = Phaser.Actions.GetFirst(this.body.getChildren(), { x: this.head.x, y: this.head.y }, 1);
+
+            if (hitBody)
+            {
+                console.log('dead');
+
+                this.alive = false;
+
+                return false;
+            }
+            else
+            {
+                this.moveTime = time + this.speed;
+
+                return true;
+            }
+        },
+
+        grow: function ()
+        {
+            var newPart = this.body.create(this.tail.x, this.tail.y, 'snake');
+
+            newPart.setOrigin(0);
+        },
+
+        collideWithFood: function (food)
+        {
+            if (this.head.x === food.x && this.head.y === food.y)
+            {
+                this.grow();
+
+                food.eat();
+
+                if (this.speed > 20 && food.total % 5 === 0)
+                {
+                    this.speed -= 5;
+                }
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        },
+
+        updateGrid: function (grid)
+        {
+            this.body.children.each(function (segment) {
+
+                var bx = segment.x / 16;
+                var by = segment.y / 16;
+
+                grid[by][bx] = false;
+
+            });
+
+            return grid;
+        }
+
+    });
+
+    food = new Food(this, 3, 4);
+
+    snake = new Snake(this, 8, 8);
+
+    cursors = this.input.keyboard.createCursorKeys();
 }
 
-function update ()
+function update (time, delta)
 {
-  if(cursors.left.isDown){
-    player.setVelocityX(-160);
-    player.anims.play('left', true);
-  }
-  else if(cursors.right.isDown){
-    player.setVelocityX(160);
-    player.anims.play('right', true);
-  }
-  else{
-    player.setVelocityX(0);
-    player.anims.play('turn');
-  }
+    if (!snake.alive)
+    {
+        return;
+    }
 
-  if(cursors.up.isDown && player.body.touching.down){
-    player.setVelocityY(-330);
-  }
+    if (cursors.left.isDown)
+    {
+        snake.faceLeft();
+    }
+    else if (cursors.right.isDown)
+    {
+        snake.faceRight();
+    }
+    else if (cursors.up.isDown)
+    {
+        snake.faceUp();
+    }
+    else if (cursors.down.isDown)
+    {
+        snake.faceDown();
+    }
+
+    if (snake.update(time))
+    {
+
+        if (snake.collideWithFood(food))
+        {
+            repositionFood();
+        }
+    }
 }
 
-function collectStar(player, star) {
-  star.disableBody(true, true);
+
+function repositionFood ()
+{
+    var testGrid = [];
+
+    for (var y = 0; y < 30; y++)
+    {
+        testGrid[y] = [];
+
+        for (var x = 0; x < 40; x++)
+        {
+            testGrid[y][x] = true;
+        }
+    }
+
+    snake.updateGrid(testGrid);
+
+    var validLocations = [];
+
+    for (var y = 0; y < 30; y++)
+    {
+        for (var x = 0; x < 40; x++)
+        {
+            if (testGrid[y][x] === true)
+            {
+                validLocations.push({ x: x, y: y });
+            }
+        }
+    }
+
+    if (validLocations.length > 0)
+    {
+        var pos = Phaser.Math.RND.pick(validLocations);
+
+        food.setPosition(pos.x * 16, pos.y * 16);
+
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
