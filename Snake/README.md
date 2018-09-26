@@ -1,35 +1,29 @@
 # Snake 2D
-*Let goed bij het maken, schrijven en bijhouden van dit document op de **[prestatie-indicatoren](https://drive.google.com/drive/folders/1y8l0Zr4E8b6gYJui_pSzQaoWr-gEr6JN?usp=sharing)**. Deze toon je aan in dit document.*
 
 I needed to make my own Snake 2D with HTML5 and the framework phaser.io. I needed to make sure it is playable on desktop and mobile. The game needs to fill the whole webbrowser so not fullscreen and on mobile it needed to work on landscape and portrait view. The main goal was that it needed to work well and how it looks doesn't matter.
 
 ## Features
-Wanneer je een specifiek onderdeel wilt uitlichten kun je dat in deze sectie benoemen.
 
-- [Awesome Algoritme](link)
-- [Specifieke Mechanic](link)
-- [Iets unieks waar je trots op bent binnen de project](link)
+- [Every feature is in 1 script](https://github.com/ColinvD/ProefOpdrachten/blob/master/Snake/script.js)
 
 ## Software Analysis
-Welke software heb je voor deze proefopdracht onderzocht? En waarom heb je uiteindelijk gekozen voor de gekozen Software. Benoem hier specifieke argumenten.
+The assignment needed to be made with phaser.io. It's a good choise because it already has some implemented features so you don't have to write them for yourself for example the collision can be done with only 1 line of code while you normally have to do it with more.
 
 ## Learning Goals
-Wat wil je bereiken met dit project? Formuleer dit kort, krachtig en haalbaar.
-- Het Flood-Fill algoritme snappen en toepassen
-- Het ontwikkelen van een generieke FSM.
-- etc. etc.
+What do i want to reach with this project:
+- Understand how to code with Phaser.io
+- Understand what you can do with Phaser.io
+- To see if I can make the classic snake
 
 ## Planning
-Je hebt grofweg 2 weken, hoe deel je deze twee weken in. Wat plan je wanneer om precies te doen?
 
-| | maandag | dinsdag | woensdag | donderdag | vrijdag |
+| | Monday | Tuesday | Wednesday | Thursday | Friday |
 | --- | --- | --- | --- | --- | --- |
-|week 1 | learn phaser.io | Research snake | Snake movement | Snake Collision | Snake expansion |
-|week 2 |
+|week 1 | learn phaser.io & Research snake | learn phaser.io | Snake movement | Snake movement | Snake Collision |
+|week 2 | Snake Collision | Apple spawning | Apple spawning | Snake expansion | Snake expansion |
 
 ## Sources
-Welke bronnen heb je gebruikt? Zowel youtube filmpjes als artikelen
 
-- [Tutorial to understand phaser.io](http://phaser.io/tutorials/making-your-first-phaser-3-game/index)
-- [Alleatoric Algorithms](link)
-- [Flood-Fill Wikipedia](link)
+- [Tutorial to understand the basics of phaser.io](http://phaser.io/tutorials/making-your-first-phaser-3-game/index)
+- [Phaser.io documentation](https://photonstorm.github.io/phaser3-docs/)
+- [A basic idea on how to code snake](https://codeincomplete.com/posts/starting-snakes/)
