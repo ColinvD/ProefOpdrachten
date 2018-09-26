@@ -13,6 +13,29 @@ public class GameManager : MonoBehaviour {
         field = generator.GetField();
     }
 
+    public bool MinesLeft()
+    {
+        int totalMinesLeft = generator.GetMines();
+        for (int i = 0; i < generator.GetLength(); i++)
+        {
+            for (int j = 0; j < generator.GetHeight(); j++)
+            {
+                if (field[i,j].GetMine() == true && field[i,j].GetFlagged() == true)
+                {
+                    totalMinesLeft--;
+                }
+            }
+        }
+        if (totalMinesLeft == 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
 	public void Flood(TileData currentTile)
     {
         int indexX = 0;

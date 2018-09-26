@@ -170,6 +170,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af8d6cfdf4ad68c4e8123e2f40fa9428, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  visable: 0
+  mine: 0
+  flagged: 0
+  condition: {fileID: 0}
+  typeImage:
+  - {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 21300000, guid: 6c6c3211509a1ee4f8dcaac1caded09a, type: 3}
+  - {fileID: 21300000, guid: de3cdb5d4c5a16349bc7a6fdd52ecdf7, type: 3}
 --- !u!222 &222097575810369234
 CanvasRenderer:
   m_ObjectHideFlags: 1

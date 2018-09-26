@@ -10,11 +10,13 @@ public class MineCounter : MonoBehaviour {
     private FieldGenerator generator;
     private int minesCount;
     private Conditions condition;
+    private GameManager manager;
 
 	// Use this for initialization
 	void Start () {
         generator = FindObjectOfType<FieldGenerator>();
         condition = FindObjectOfType<Conditions>();
+        manager = FindObjectOfType<GameManager>();
         minesCount = generator.GetMines();
         counterText.text = "Mines left: " + minesCount;
 	}
@@ -23,7 +25,7 @@ public class MineCounter : MonoBehaviour {
     {
         minesCount += amount;
         counterText.text = "Mines left: " + minesCount;
-        if (minesCount == 0)
+        if (minesCount == 0 && manager.MinesLeft())
         {
             condition.WinCondition();
         }

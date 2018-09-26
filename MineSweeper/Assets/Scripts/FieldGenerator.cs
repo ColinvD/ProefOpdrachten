@@ -16,11 +16,9 @@ public class FieldGenerator : MonoBehaviour {
     private GameObject tile;
     [SerializeField]
     private int mines;
-    private Conditions conditions;
 
     // Use this for initialization
     void Start () {
-        conditions = FindObjectOfType<Conditions>();
         if (mines < length * height && mines > 0)
         {
             field = new TileData[length, height];
@@ -40,7 +38,7 @@ public class FieldGenerator : MonoBehaviour {
                 if (!field[x, y].GetMine())
                 {
                     field[x, y].ChangeMine(true);
-                    conditions.AddMines(field[x, y]);
+                    //conditions.AddMines(field[x, y]);
                 }
                 else
                 {

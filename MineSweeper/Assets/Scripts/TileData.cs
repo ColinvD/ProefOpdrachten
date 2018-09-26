@@ -11,7 +11,10 @@ public class TileData : MonoBehaviour {
     private Text number;
     private GameManager manager;
     private MineCounter counter;
+    [SerializeField]
     private Conditions condition;
+    [SerializeField]
+    private Sprite[] typeImage;
 
 	// Use this for initialization
 	void Start () {
@@ -34,8 +37,7 @@ public class TileData : MonoBehaviour {
             }
             else if (mine == true)
             {
-                number.text = "boom";
-                GetComponent<Image>().color = Color.red;
+                GetComponent<Image>().sprite = typeImage[2];
                 condition.LoseCondition();
             }
         } else if(Input.GetKey(KeyCode.LeftShift) && !visable)
@@ -53,8 +55,7 @@ public class TileData : MonoBehaviour {
         }
         else if (mine == true)
         {
-            number.text = "boom";
-            GetComponent<Image>().color = Color.red;
+            GetComponent<Image>().sprite = typeImage[2];
         }
     }
 
@@ -63,12 +64,12 @@ public class TileData : MonoBehaviour {
         flagged = !flagged;
         if (flagged)
         {
-            GetComponent<Image>().color = Color.yellow;
+            GetComponent<Image>().sprite = typeImage[1];
             counter.ChangeCounter(-1);
         }
         else
         {
-            GetComponent<Image>().color = Color.white;
+            GetComponent<Image>().sprite = typeImage[0];
             counter.ChangeCounter(1);
         }
     }

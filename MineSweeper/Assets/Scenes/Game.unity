@@ -992,7 +992,7 @@ MonoBehaviour:
   height: 13
   canvas: {fileID: 506811736}
   tile: {fileID: 1986047689663508, guid: 2437eaf9b8c2f4a47a321931514a7ec3, type: 2}
-  mines: 50
+  mines: 30
 --- !u!4 &1817396692
 Transform:
   m_ObjectHideFlags: 0
@@ -1051,7 +1051,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95e6b641117d6a34bbf858e47a1eff5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mines: []
   panel: {fileID: 707591810}
   text: {fileID: 2073066523}
 --- !u!1 &2073066521
