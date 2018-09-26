@@ -10,4 +10,4 @@ Controls: left click to reveal the tile, left shift + left click to flag / unfla
 
 [Playable game](http://22950.hosts.ma-cloud.nl/bewijzenmap/p3.1/ProefOpdrachten/Minesweeper/)
 
-[Portfolio page](http://22950.hosts.ma-cloud.nl/bewijzenmap/Portfolio/Site/htmlFiles/Projects/SchoolProjects/Minesweeper.html)
+[Portfolio page](http://22950.hosts.ma-cloud.nl/bewijzenmap/Portfolio/Site/htmlFiles/Projects/SchoolProjects/MineSweeper/)
