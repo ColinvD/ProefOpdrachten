@@ -20,7 +20,7 @@ What do i want to reach with this project:
 | | Monday | Tuesday | Wednesday | Thursday | Friday |
 | --- | --- | --- | --- | --- | --- |
 |week 1 | learn phaser.io & Research snake | learn phaser.io | Snake movement | Snake movement | Snake Collision |
-|week 2 | Snake Collision | Apple spawning | Apple spawning | Snake expansion | Snake expansion |
+|week 2 | Apple spawning | Snake expansion | Snake expansion | | |
 
 ## Sources
 
