@@ -41,7 +41,7 @@ public class GridMaker : MonoBehaviour {
             {
                 field[i, j] = Instantiate(hexagon, new Vector3(0+i*1.5f*data.GetSize(),0+j*Mathf.Sqrt(3) * data.GetSize() + i % 2 * Mathf.Sqrt(3) / 2 * data.GetSize(),0), new Quaternion());
                 field[i, j].GetComponent<MeshFilter>().mesh = hexMesh;
-                field[i, j].transform.localScale = new Vector3(0.95f,0.95f,0.95f);
+                field[i, j].transform.localScale = new Vector3(0.95f,0.95f,0.95f) * data.GetSize();
             }
         }
     }

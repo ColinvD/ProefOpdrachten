@@ -4,22 +4,13 @@ using UnityEngine;
 
 public class MakeMesh : MonoBehaviour
 {
-    private Data data;
     private float sideLength = 1.0f;
     
     private Mesh mesh;
 
-    // Use this for initialization
-    void Start()
-    {
-        data = FindObjectOfType<Data>();
-    }
-
     public Mesh GenerateHex()
     {
         mesh = new Mesh();
-        sideLength = data.GetSize();
-
         float height = Mathf.Sqrt(3) / 2 * sideLength;
 
         Vector3[] vertices = new Vector3[]
