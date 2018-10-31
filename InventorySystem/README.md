@@ -4,7 +4,8 @@ In this project I make a reusable inventory system where you can sort, add, remo
 
 ## Features
 
-- [Reusable Inventory system](https://github.com/ColinvD/ProefOpdrachten/blob/master/Hexagon/Assets/Scripts/MakeMesh.cs)
+- [Reusable Item](https://github.com/ColinvD/ProefOpdrachten/blob/master/InventorySystem/Assets/Scripts/Inventory/Item.cs)
+- [Reusable Inventory system](https://github.com/ColinvD/ProefOpdrachten/blob/master/InventorySystem/Assets/Scripts/Inventory/Inventory.cs)
 
 ## Software Analysis
 
@@ -15,6 +16,7 @@ Javascript is only code so you can always make reusable code but because javascr
 ## Learning Goals
 What do I want to reach with this project:
 - To make reusable code that I might use in other projects
+- To get some experience to make a inventory system
 
 ## Planning
 

@@ -5,21 +5,21 @@ using UnityEngine;
 public class Collectable : MonoBehaviour {
 
     [SerializeField]
-    private int naam;
-    public Item naam2;
+    private int itemNumber;
+    public Item currentItem;
 
     // Use this for initialization
     void Start () {
-        switch (naam)
+        switch (itemNumber)
         {
             case 0:
-                naam2 = new Apple();
+                currentItem = new Apple();
                 break;
             case 1:
-                naam2 = new Melon();
+                currentItem = new Melon();
                 break;
             case 2:
-                naam2 = new Orange();
+                currentItem = new Orange();
                 break;
         }
     }

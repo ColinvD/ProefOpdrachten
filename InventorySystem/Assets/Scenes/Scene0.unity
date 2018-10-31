@@ -866,6 +866,11 @@ Prefab:
       propertyPath: naam
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114866640785488308, guid: 6392ed9262847eb43b5486945446884d,
+        type: 2}
+      propertyPath: itemNumber
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6392ed9262847eb43b5486945446884d, type: 2}
   m_IsPrefabParent: 0
@@ -1475,6 +1480,11 @@ Prefab:
     - target: {fileID: 114866640785488308, guid: 6392ed9262847eb43b5486945446884d,
         type: 2}
       propertyPath: naam
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114866640785488308, guid: 6392ed9262847eb43b5486945446884d,
+        type: 2}
+      propertyPath: itemNumber
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -14,7 +14,7 @@ public class Collision : MonoBehaviour {
     {
         if (other.tag == "Item")
         {
-            inventory.AddItem(other.GetComponent<Collectable>().naam2);
+            inventory.AddItem(other.GetComponent<Collectable>().currentItem);
         }
     }
 }
