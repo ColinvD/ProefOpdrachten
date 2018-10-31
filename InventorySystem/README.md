@@ -20,8 +20,8 @@ What do I want to reach with this project:
 
 | | Monday | Tuesday | Wednesday | Thursday | Friday |
 | --- | --- | --- | --- | --- | --- |
-|week 1 | Research engine to make reusable code | Make a global code |  |  |  |
-|week 2 |  |  |  | | |
+|week 1 | Research engine to make reusable code | make a reusable item | make a reusable item | make a inventory | make a inventory |
+|week 2 | player movement & player collision | inventory UI | inventory UI | | |
 
 ## Sources
 
