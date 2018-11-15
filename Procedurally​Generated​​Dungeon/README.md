@@ -4,12 +4,12 @@ In this project I try to make a dungeon.
 
 ## Features
 
-- [RoomMaker](https://github.com/ColinvD/ProefOpdrachten/blob/master/InventorySystem/Assets/Scripts/Inventory/Item.cs)
+- [RoomMaker](https://github.com/ColinvD/ProefOpdrachten/blob/master/Procedurally%E2%80%8B%20%E2%80%8BGenerated%E2%80%8B%20%E2%80%8BDungeon/Assets/Scripts/Room.cs)
 
 ## Software Analysis
 
-Javascript 
-Unity 
+Javascript very easy to make a 2d dungeon on a canvas, allows more things.
+Unity is more clearer what you do, faster and easier to see what the code does with diffrent values.
 
 ## Learning Goals
 What do I want to reach with this project:
